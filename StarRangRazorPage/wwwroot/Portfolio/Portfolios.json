@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": ".NET",
+    "description": "ASP.NET Core",
+    "img": "/Portfolio/images/Azure.png"
+     
+  },
+  {
+    "id": 2,
+    "title": "Java",
+    "description": "Spring boots",
+    "img": "/Portfolio/images/spring.png"
+  },
+  {
+    "id": 3,
+    "title": "javascript",
+    "description": "node.js",
+    "img": "/Portfolio/images/nodejs.png"
+  }
+
+]
+

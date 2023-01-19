@@ -1,11 +1,20 @@
 @page 
+@using StarRangRazorPage.Models;
+@using StarRangRazorPage.Service;
 @{
 
-    string[] ourblog = { "1", "2", "3", "4", "5", "6" };
+    //List<Portfolio> blogs = new List<Portfolio>()
+    //{
+    //    new Portfolio{ Id= 1, Title = ".NET", Description = "ASP.NET Core"},
+    //    new Portfolio{ Id= 2, Title = "Java", Description = "Spring boots"},
+    //    new Portfolio{ Id= 3, Title = "node.js", Description = "ASP.NET Core"},
+
+    //};
+
+    var portfolio = (new PortfolioServiceJsonFile()).GetPortfolios();
+
     ViewBag.Title = "Index";
 }
-
-
             <!-- Features section-->
             <section class="py-5" id="features">
                 <div class="container px-5 my-5">
@@ -70,15 +79,16 @@
                         </div>
                     </div>
                     <div class="row gx-5">
-                    @foreach(var blog in ourblog)
+            @foreach (var blog in portfolio)
                     {
                         <div class="col-lg-4 mb-5">
                             <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                        <div class="portfolio-item-image" style="background-image:url('@blog.ImageUrl')"></div>
+
                                 <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">News @blog</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Blog post title</h5></a>
-                                    <p class="card-text mb-0">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">News </div>
+                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">@blog.Title</h5></a>
+                            <p class="card-text mb-0">@blog.Description</p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                     <div class="d-flex align-items-end justify-content-between">

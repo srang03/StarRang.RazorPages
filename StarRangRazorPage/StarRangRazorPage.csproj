@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\dash\" />
+    <Folder Include="wwwroot\Portfolio\images\" />
   </ItemGroup>
 
   <ItemGroup>
