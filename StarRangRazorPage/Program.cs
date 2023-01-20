@@ -1,3 +1,5 @@
+using StarRangRazorPage.Service;
+
 namespace StarRangRazorPage
 {
     public class Program
@@ -6,6 +8,7 @@ namespace StarRangRazorPage
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddRazorPages();
+            builder.Services.AddTransient<PortfolioServiceJsonFile>();
 
             var app = builder.Build();
 

@@ -5,11 +5,24 @@ namespace StarRangRazorPage.Service
 {
     public class PortfolioServiceJsonFile
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        private string JsonFileName {
+            get
+            {
+                return Path.Combine(_webHostEnvironment.WebRootPath, "Portfolio", "Portfolios.json");
+            }
+        }
+
+        public PortfolioServiceJsonFile(IWebHostEnvironment webHostEnvironment)
+        {
+            this._webHostEnvironment = webHostEnvironment;
+        }
+
         public IEnumerable<Portfolio> GetPortfolios()
         {
-            var jsonFileName = @"C:\StarRang.RazorPages\StarRang.RazorPages\StarRangRazorPage\wwwroot\Portfolio\Portfolios.json";
 
-            using (var sr = File.OpenText(jsonFileName))
+            using (var sr = File.OpenText(JsonFileName))
             {
                 var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
                 var result =  JsonSerializer.Deserialize<Portfolio[]>(sr.ReadToEnd(), options);
