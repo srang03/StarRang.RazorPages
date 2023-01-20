@@ -14,8 +14,7 @@ namespace StarRangRazorPage.Pages.Portfolios
         }
 
         public IEnumerable<Portfolio> Portfolios { get; private set; }
-        public string Test { get; private set; }
-
+ 
         public void OnGet()
         {
             Portfolios = _portfolioServiceJsonFile.GetPortfolios();
