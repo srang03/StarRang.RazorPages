@@ -1,0 +1,71 @@
+﻿@using StarRangRazorPage.Models
+@using StarRangRazorPage.Service;
+@using Microsoft.AspNetCore.Components.Web;
+@inject PortfolioServiceJsonFile PortfolioService
+
+<h2>Blazor 컴포넌트 사용 출력</h2>
+<div class="row gx-5">
+    @foreach (var blog in PortfolioService.GetPortfolios())
+    {
+        <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+                <div class="portfolio-item-image" style="background-image:url('@blog.ImageUrl')"></div>
+
+                <div class="card-body p-4">
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">News </div>
+                    <h5 class="card-title mb-3">@blog.Title</h5>
+                    <p class="card-text mb-0">@blog.Description</p>
+                </div>
+                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                    <div class="d-flex align-items-end justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                            <div class="small"> 
+                                <div class="fw-bold">Kelly Rowan</div>
+                                <div class="text-muted">March 12, 2022 &middot; 6 min read</div>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" @onclick="(()=> SelectPortfolio(blog.Id))">
+                                    Read
+                                </button>
+                            </div>
+                 
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- Button trigger modal -->
+        </div>
+    }
+</div>
+
+
+
+@if(selectedPortfolio != null)
+{
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">@selectedPortfolio.Title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @selectedPortfolio.Description
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code{
+    Portfolio selectedPortfolio = new Portfolio();
+    void SelectPortfolio(int portfoilioId)
+    {
+        selectedPortfolio = PortfolioService.GetPortfolios().FirstOrDefault(b => b.Id == portfoilioId);
+    }
+}

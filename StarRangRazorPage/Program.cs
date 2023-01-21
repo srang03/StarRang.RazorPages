@@ -8,6 +8,7 @@ namespace StarRangRazorPage
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddRazorPages();
+            builder.Services.AddServerSideBlazor();
             builder.Services.AddTransient<PortfolioServiceJsonFile>();
 
             var app = builder.Build();
@@ -16,6 +17,7 @@ namespace StarRangRazorPage
             //app.UseFileServer();
             // app.MapGet("/", () => "Hello World!");
             app.MapRazorPages();
+            app.MapBlazorHub();
             app.Run();
         }
     }

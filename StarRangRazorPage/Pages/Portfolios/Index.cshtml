@@ -6,6 +6,8 @@
 ViewData["Title"] = "Portfolio";
 }
 
+@using StarRangRazorPage.Components;
+
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
         <a asp-page="/Index">Home</a>
@@ -51,5 +53,9 @@ ViewData["Title"] = "Portfolio";
             </div>
         }
         </div>
+
+        <hr />
+        <component type="typeof(PortfolioList)" render-mode="ServerPrerendered"></component>
+        <script src="_framework/blazor.server.js"></script>
     </div>
 </section>

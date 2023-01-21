@@ -1,5 +1,4 @@
 ﻿@page 
-
 @model StarRangRazorPage.Pages.Portfolios.ListModel
     
     @{
@@ -10,6 +9,8 @@
 @{
     var portfolio = PortfolioService.GetPortfolios();
 }
+
+@using StarRangRazorPage.Components;
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
@@ -56,5 +57,8 @@
             </div>
         }
         </div>
+
+        <hr />
+
     </div>
 </section>
