@@ -4,7 +4,7 @@
 @inject PortfolioServiceJsonFile PortfolioService
 
 <h2>Blazor 컴포넌트 사용 출력</h2>
-<div class="row gx-5">
+<div class="row gx-5 portfolio-list">
     @foreach (var blog in PortfolioService.GetPortfolios())
     {
         <div class="col-lg-4 mb-5">
@@ -23,12 +23,11 @@
                             <div class="small"> 
                                 <div class="fw-bold">Kelly Rowan</div>
                                 <div class="text-muted">March 12, 2022 &middot; 6 min read</div>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" @onclick="(()=> SelectPortfolio(blog.Id))">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" @onclick="(() => SelectedPortfolio(blog.Id))">
                                     Read
                                 </button>
                             </div>
-                 
-                       
+  
                         </div>
                     </div>
                 </div>
@@ -40,32 +39,56 @@
 
 
 
-@if(selectedPortfolio != null)
-{
+
     <!-- Modal -->
+ @if(portfolio != null){
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">@selectedPortfolio.Title</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">@portfolio.Title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    @selectedPortfolio.Description
-                </div>
+                    <div class="card h-100 shadow border-0">
+                        <div class="modal-portfolio-item-image" style="background-image:url('@portfolio.ImageUrl')"></div>
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">News </div>
+                                    <h5 class="card-title mb-3">@portfolio.Title</h5>
+                                    <p class="card-text mb-0">@portfolio.Description</p>
+                            </div>
+                        </div>
+                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        var currentStar = i;
+                        if (i < currentRating)
+                        {
+                            <span><i class="bi bi-star-fill"></i></span>
+                        }
+                        else
+                        {
+                            <span><i class="bi bi-star"></i></span>
+                        }
+                    }
+                    
+
+
                 </div>
             </div>
         </div>
     </div>
-}
+
+    }
 
 @code{
-    Portfolio selectedPortfolio = new Portfolio();
-    void SelectPortfolio(int portfoilioId)
+    Portfolio portfolio = new Portfolio();
+    void SelectedPortfolio(int id)
     {
-        selectedPortfolio = PortfolioService.GetPortfolios().FirstOrDefault(b => b.Id == portfoilioId);
+        portfolio = PortfolioService.GetPortfolios().FirstOrDefault(x => x.Id == id);
+        return;
     }
+
+    int currentRating = 3;
 }
