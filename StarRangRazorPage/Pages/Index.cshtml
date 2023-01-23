@@ -9,11 +9,13 @@
     //    new Portfolio{ Id= 3, Title = "node.js", Description = "ASP.NET Core"},
 
     //};
+    Layout = "_LayoutPortfolio";
 
     var portfolio = PortfolioService.GetPortfolios();
 
     ViewBag.Title = "Index";
 }
+@using StarRangRazorPage.Components;
  <!-- Header-->
     <header class="bg-dark py-5">
         <div class="container px-5">
@@ -95,6 +97,9 @@
                             </div>
                         </div>
                     </div>
+
+        <component type="typeof(PortfolioList)" render-mode="ServerPrerendered"></component>
+
                     <div class="row gx-5">
             @foreach (var blog in portfolio)
                     {

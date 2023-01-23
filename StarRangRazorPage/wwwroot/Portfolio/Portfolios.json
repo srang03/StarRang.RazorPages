@@ -1,22 +1,77 @@
 [
   {
-    "id": 1,
-    "title": ".NET",
-    "description": "ASP.NET Core",
-    "img": "/Portfolio/images/Azure.png"
-
+    "Id": 1,
+    "Title": ".NET",
+    "Description": "ASP.NET Core",
+    "img": "/Portfolio/images/Azure.png",
+    "Ratings": [
+      5,
+      4,
+      1
+    ]
   },
   {
-    "id": 2,
-    "title": "Java",
-    "description": "Spring boots",
-    "img": "/Portfolio/images/spring.png"
+    "Id": 2,
+    "Title": "Java",
+    "Description": "Spring boots",
+    "img": "/Portfolio/images/spring.png",
+    "Ratings": [
+      4,
+      5,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ]
   },
   {
-    "id": 3,
-    "title": "javascript",
-    "description": "node.js",
-    "img": "/Portfolio/images/nodejs.png"
+    "Id": 3,
+    "Title": "javascript",
+    "Description": "node.js",
+    "img": "/Portfolio/images/nodejs.png",
+    "Ratings": [
+      5,
+      1,
+      1,
+      1,
+      1,
+      5,
+      5,
+      5
+    ]
   }
-
 ]

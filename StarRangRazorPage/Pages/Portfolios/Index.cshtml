@@ -3,10 +3,12 @@
 @model StarRangRazorPage.Pages.Portfolios.IndexModel
     
 @{
-ViewData["Title"] = "Portfolio";
+    ViewData["Title"] = "Portfolio";
+
+    Layout = "_LayoutPortfolio";
 }
 
-@using StarRangRazorPage.Components;
+
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
@@ -55,7 +57,6 @@ ViewData["Title"] = "Portfolio";
         </div>
 
         <hr />
-        <component type="typeof(PortfolioList)" render-mode="ServerPrerendered"></component>
-        <script src="_framework/blazor.server.js"></script>
+   @*     <script src="_framework/blazor.server.js"></script>*@
     </div>
 </section>

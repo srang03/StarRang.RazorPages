@@ -60,16 +60,24 @@
                         </div>
                  </div>
                 <div class="modal-footer">
+                    @if(voteCount == 0)
+                    {
+                        <span>투표하세요</span>
+                    }
+                    else
+                    {
+                        <span>@voteCount @voteLabel</span>
+                    }
                     @for (int i = 0; i < 5; i++)
                     {
                         var currentStar = i;
                         if (i < currentRating)
                         {
-                            <span><i class="bi bi-star-fill"></i></span>
+                            <span @onclick="(()=>HandleClick(currentStar+1))"><i class="bi bi-star-fill"></i></span>
                         }
                         else
                         {
-                            <span><i class="bi bi-star"></i></span>
+                            <span @onclick="(()=>HandleClick(currentStar+1))"><i class="bi bi-star"></i></span>
                         }
                     }
                     
@@ -84,11 +92,33 @@
 
 @code{
     Portfolio portfolio = new Portfolio();
+
+    int currentRating = 3;
+    int voteCount;
+    string voteLabel
+    ;
     void SelectedPortfolio(int id)
     {
         portfolio = PortfolioService.GetPortfolios().FirstOrDefault(x => x.Id == id);
+
+        if (portfolio.Ratings == null)
+        {
+            currentRating = 0;
+            voteCount = 0;
+        }
+        else
+        {
+            voteCount = portfolio.Ratings.Count();
+            voteLabel = (voteCount > 1) ? "Vote" : "Votes";
+            currentRating = portfolio.Ratings.Sum() / voteCount;
+        }
         return;
     }
 
-    int currentRating = 3;
+    void HandleClick(int rating)
+    {
+        PortfolioService.AddRating(portfolio.Id, rating);
+        SelectedPortfolio(portfolio.Id);
+    }
+
 }
