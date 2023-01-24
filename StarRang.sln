@@ -15,7 +15,9 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Zero.SQLServer", "Zero.SQLS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualAcademy", "VisualAcademy\VisualAcademy.csproj", "{383F3614-D971-44C3-A6A8-C80DBB8B7321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogExample", "BlogExample\BlogExample.csproj", "{DBC666EB-3D12-4689-BC56-AC8188D11222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogExample", "BlogExample\BlogExample.csproj", "{DBC666EB-3D12-4689-BC56-AC8188D11222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationAutorization", "AuthenticationAutorization\AuthenticationAutorization.csproj", "{FFBDE2F4-A3CA-4D7B-B213-E4B983424831}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{DBC666EB-3D12-4689-BC56-AC8188D11222}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBC666EB-3D12-4689-BC56-AC8188D11222}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBC666EB-3D12-4689-BC56-AC8188D11222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFBDE2F4-A3CA-4D7B-B213-E4B983424831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFBDE2F4-A3CA-4D7B-B213-E4B983424831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFBDE2F4-A3CA-4D7B-B213-E4B983424831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFBDE2F4-A3CA-4D7B-B213-E4B983424831}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
