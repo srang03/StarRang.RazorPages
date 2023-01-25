@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZeroExample.Data;
 
@@ -11,9 +12,10 @@ using ZeroExample.Data;
 namespace ZeroExample.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230125083119_LocationTableAdd")]
+    partial class LocationTableAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,31 +275,6 @@ namespace ZeroExample.Data.Migrations
                     b.ToTable("Property");
                 });
 
-            modelBuilder.Entity("ZeroExample.Models.SubLocation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("LocationId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LocationId");
-
-                    b.ToTable("SubLocations");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -358,15 +335,6 @@ namespace ZeroExample.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("PropertyRef");
-                });
-
-            modelBuilder.Entity("ZeroExample.Models.SubLocation", b =>
-                {
-                    b.HasOne("ZeroExample.Models.Location", "LocationRef")
-                        .WithMany()
-                        .HasForeignKey("LocationId");
-
-                    b.Navigation("LocationRef");
                 });
 #pragma warning restore 612, 618
         }

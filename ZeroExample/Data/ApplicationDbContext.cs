@@ -9,8 +9,13 @@ namespace ZeroExample.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
 
         public DbSet<Property> Properties { get; set; } = null!;
+
+        public DbSet<Location> Locations { get; set; } = null!;
+
+        public DbSet<SubLocation> SubLocations { get; set; } = null!;   
     }
 }
