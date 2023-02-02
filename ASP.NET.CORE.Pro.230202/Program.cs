@@ -19,6 +19,7 @@ namespace ASP.NET.CORE.Pro._230202
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+            
 
             var app = builder.Build();
 
@@ -35,7 +36,7 @@ namespace ASP.NET.CORE.Pro._230202
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(); //HTML
 
             app.UseRouting();
 
