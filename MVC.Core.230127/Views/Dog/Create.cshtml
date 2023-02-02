@@ -1,0 +1,30 @@
+﻿@model Dog
+<h1>Create</h1>
+
+<hr />
+
+<div class="row">
+
+    <div class="col-6">
+        <form asp-controller="Dog" asp-action="CreateDog" method="post">
+            <div>
+                <label class="form-label">Id</label>
+                <input asp-for=Id type="number" class="form-control" />
+            </div>
+
+            <div>
+                <label class="form-label">Name</label>
+                <input asp-for=Name type="text" class="form-control" />
+            </div>
+
+            <div>
+                <label class="form-label">Age</label>
+                <input asp-for=Age type="number" class="form-control" />
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">저장</button>
+            </div>
+        </form>
+
+    </div>
+</div>

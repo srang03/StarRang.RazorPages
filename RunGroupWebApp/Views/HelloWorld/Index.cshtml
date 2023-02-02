@@ -1,0 +1,15 @@
+﻿@model List<RunGroupWebApp.Models.DogViewModel>
+
+
+<h1>Hello World</h1>
+<p>This is the index page of the HelloWorld Controller</p>
+
+
+    <ul>
+        @foreach (var dvm in Model)
+        {
+            <li>
+                @dvm.Name (@dvm.Age)
+            </li>
+        }
+    </ul>

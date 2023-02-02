@@ -1,0 +1,11 @@
+﻿@model List<Dog>
+
+<h1>List</h1>
+
+<ul>
+    @foreach(var dog in Model)
+    {
+        <li>[@dog.Id] @dog.Name (@dog.Age)</li>
+    }
+
+</ul>
