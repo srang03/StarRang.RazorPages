@@ -8,6 +8,7 @@ namespace DotNetNote230202
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
@@ -23,11 +24,11 @@ namespace DotNetNote230202
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.MapDefaultControllerRoute();
 
             app.UseAuthorization();
 
             app.MapRazorPages();
-
             app.Run();
         }
     }

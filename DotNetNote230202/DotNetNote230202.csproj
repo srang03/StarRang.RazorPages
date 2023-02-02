@@ -10,4 +10,8 @@
     <ProjectReference Include="..\DotNet.Model.230202\DotNet.Model.230202.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
